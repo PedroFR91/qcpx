@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import LevelAndTimePanel from '../containers/LevelAndTimePanel';
 import Image from '../elements/Image';
 import buttonPlay from '../assets/button_play.png';
@@ -10,6 +11,7 @@ import PaletteGrid from '../elements/PaletteGrid';
 import data from '../constants/data';
 
 function Body() {
+  const [selectedColor, setSelectedColor] = useState('#000000');
   return (
     <div className='bodycontainer'>
       <div className='levelandtime'>
@@ -18,14 +20,23 @@ function Body() {
       <div className='gridcontainer'>
         <div className='grid'>
           {data.grid.map((actualGrid, index) => (
-            <MiniGrid key={index} backColor={actualGrid.minigrid} />
+            <MiniGrid
+              key={index}
+              color={actualGrid.minigrid}
+              selectedColor={selectedColor}
+            />
           ))}
         </div>
         <Levels />
       </div>
+
       <div className='palette' id='palette'>
         {data.palette.map((actualColor, index) => (
-          <PaletteGrid key={index} color={actualColor.color} />
+          <PaletteGrid
+            key={index}
+            color={actualColor.color}
+            setSelectedColor={setSelectedColor}
+          />
         ))}
       </div>
       <div className='button play' id='buttonplay'>

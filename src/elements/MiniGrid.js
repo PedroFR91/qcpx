@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
-import data from '../constants/data';
-import PaletteGrid from './PaletteGrid';
+import React, { useRef } from 'react';
 
-function MiniGrid({ bgcolor }) {
-  const [background, setBackground] = useState('#fff');
+function MiniGrid({ selectedColor }) {
+  const myDiv = useRef(null);
 
-  const setColor = (background) => {
-    setBackground(background);
+  const Color = () => {
+    myDiv.current.style.backgroundColor = selectedColor;
   };
-  /*backColor coge desde data*/
   return (
     <div
+      ref={myDiv}
       className='minigrid'
-      style={{ backgroundColor: background }}
-      onClick={() => setColor('#ff0000')}
+      style={{ backgroundColor: '#FFFFFF' }}
+      onClick={(e) => Color()}
     ></div>
   );
 }

@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function PaletteGrid(props) {
-  const [pickcolor, setPickColor] = useState('#ffffff');
-
-  const setPickcolor = (pickcolor) => {
-    pickcolor = props.color;
-    setPickColor(pickcolor);
-    console.log(pickcolor);
+function PaletteGrid({ setSelectedColor, color }) {
+  var currentColor;
+  const pickColor = (color) => {
+    setSelectedColor(color);
+    currentColor = color;
+    console.log(currentColor);
   };
   return (
     <div
       className='palettegrid'
-      style={{ background: props.color }}
-      onClick={() => setPickcolor(pickcolor)}
+      style={{ background: color }}
+      onClick={() => pickColor(color)}
     ></div>
   );
 }
