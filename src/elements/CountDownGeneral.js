@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function CountDown(props) {
+function CountDownGeneral(props) {
   const [seconds, setSeconds] = useState(props.start);
   var minutes = Math.floor(seconds / 60);
   var secs = seconds - minutes * 60;
@@ -14,6 +14,12 @@ function CountDown(props) {
     clearTimeout(myTime);
     const levels = document.getElementById('levels');
     levels.classList.add('hide');
+    const buttonplay = document.getElementById('buttonplay');
+    buttonplay.classList.add('hide');
+    const buttondone = document.getElementById('buttondone');
+    buttondone.classList.remove('hide');
+    const theme = document.getElementById('theme');
+    theme.innerHTML = 'HUMAN';
   }
 
   return (
@@ -23,4 +29,4 @@ function CountDown(props) {
   );
 }
 
-export default CountDown;
+export default CountDownGeneral;

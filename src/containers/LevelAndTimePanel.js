@@ -4,7 +4,7 @@ function LevelAndTimePanel(props) {
   return (
     <div className='levelandtimepanel'>
       <div id='level' className='selected'>
-        <p id='leveleasy'>{props.level}</p>
+        {props.level}
       </div>
       <div id='cd' className=''>
         {props.time}

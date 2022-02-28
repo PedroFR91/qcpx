@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 
-function MiniGrid({ selectedColor }) {
+function MiniGrid({ selectedColor, index }) {
   const myDiv = useRef(null);
 
   const Color = () => {
     myDiv.current.style.backgroundColor = selectedColor;
+    console.log(selectedColor);
+    console.log(myDiv.index);
   };
   return (
     <div

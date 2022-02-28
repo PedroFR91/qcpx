@@ -1,7 +1,9 @@
-function Theme(props) {
+function Theme() {
   return (
     <div>
-      <p className='theme'>{props.theme}</p>
+      <p className='theme' id='theme'>
+        ?????
+      </p>
     </div>
   );
 }
