@@ -8,12 +8,11 @@ import {
   WhatsappShareButton,
 } from 'react-share';
 
-function Social() {
-  const title =
-    '🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨\r\n🟨🟨⬛⬛🟨🟨⬛⬛🟨🟨\r\n🟨🟨⬛⬛🟨🟨⬛⬛🟨🟨\r\n🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨\r\n🟨🟨⬛🟨🟨🟨🟨⬛🟨🟨\r\n🟨🟨🟨⬛🟨🟨⬛🟨🟨🟨\r\n🟨🟨🟨🟨⬛⬛🟨🟨🟨🟨\r\n🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨\r\n🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨\r\n🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨';
+function Social({ titleEmoji }) {
+  const title = titleEmoji;
 
   return (
-    <div className='socialsection hide' id='socialsection'>
+    <div className='socialsection' id='socialsection'>
       <div className='social-icon'>
         <TelegramShareButton
           url={'http://www.muchopixels.com'}
@@ -33,7 +32,7 @@ function Social() {
         </TwitterShareButton>
       </div>
       <div className='social-icon'>
-        <WhatsappShareButton url={'http://www.muchopixels.com'} quote={title}>
+        <WhatsappShareButton url={'http://www.muchopixels.com'} title={title}>
           <WhatsappIcon size={40} borderRadius={36} />
         </WhatsappShareButton>
       </div>

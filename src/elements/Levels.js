@@ -4,9 +4,7 @@ import backDifficultImg from '../assets/difficulty_dark_base_full.png';
 import CountDownGeneral from './CountDownGeneral';
 
 function Levels() {
-  var startcount = false;
-  console.log(startcount);
-  function setLevelEasy(startcount) {
+  function setLevelEasy() {
     hideLevels();
     startCount();
     const levelandtimeshape = document.getElementById('levelandtimeshape');
@@ -29,15 +27,13 @@ function Levels() {
     levelandtimehard.classList.remove('hide');
   }
   function hideLevels() {
-    const listlevels = document.getElementById('listlevels');
-    listlevels.classList.add('hide');
+    const levels = document.getElementById('levels');
+    levels.classList.add('hide');
   }
-  const startCount = () => {
-    startcount = true;
-  };
+  const startCount = () => {};
 
   return (
-    <div className='levels ' id='levels'>
+    <div className='levels hide' id='levels'>
       <Image
         nameImg={backDifficultImg}
         widthImg={'100%'}
@@ -45,7 +41,7 @@ function Levels() {
         id='backlevels'
       />
       <div className='inicountdown' id='inicountdown'>
-        <CountDownGeneral start={10} />
+        {/*<CountDownGeneral start={10} />*/}
       </div>
       <div className='listlevels' id='listlevels'>
         <p>Choose difficulty:</p>

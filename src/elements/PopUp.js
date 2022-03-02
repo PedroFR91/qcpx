@@ -8,7 +8,7 @@ function hiddenPopUp() {
 }
 function PopUp() {
   return (
-    <div className='popup' id='popup'>
+    <div className='popup hide' id='popup'>
       <Image nameImg={popUpImg} widthImg={'100%'} />
       <button className='buttonclose' onClick={hiddenPopUp}>
         <Image nameImg={buttonCloseImg} widthImg={'100%'} />

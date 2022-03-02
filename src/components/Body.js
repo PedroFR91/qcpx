@@ -9,12 +9,20 @@ import Social from '../elements/Social';
 import MiniGrid from '../elements/MiniGrid';
 import PaletteGrid from '../elements/PaletteGrid';
 import data from '../constants/data';
-import eraseImg from '../assets/color_palette_erase.png';
-import CountDownGeneral from '../elements/CountDownGeneral';
 
 function Body() {
   const [selectedColor, setSelectedColor] = useState('#FFFFFF');
-  function setLevel() {}
+  const [titleEmoji, setTitleEmoji] = useState('Hola');
+  function setLevel() {
+    const levels = document.getElementById('levels');
+    levels.classList.add('hide');
+    const buttonplay = document.getElementById('buttonplay');
+    buttonplay.classList.add('hide');
+    const buttondone = document.getElementById('buttondone');
+    buttondone.classList.remove('hide');
+    const theme = document.getElementById('theme');
+    theme.innerHTML = 'HUMAN';
+  }
   function done() {
     const buttondone = document.getElementById('buttondone');
     buttondone.classList.add('hide');
@@ -51,11 +59,13 @@ function Body() {
 
       <div className='gridcontainer'>
         <div className='grid'>
-          {data.grid.map((actualGrid, index) => (
+          {data.grid.map((actualGrid) => (
             <MiniGrid
-              key={index}
+              key={actualGrid.id}
+              mykey={actualGrid.id}
               color={actualGrid.minigrid}
               selectedColor={selectedColor}
+              setTitleEmoji={setTitleEmoji}
             />
           ))}
         </div>
@@ -70,8 +80,8 @@ function Body() {
           />
         ))}
       </div>
-      <div className='share hide' id='share'>
-        <Social />
+      <div className='share ' id='share'>
+        <Social titleEmoji={titleEmoji} />
       </div>
       <div className='button play' id='buttonplay'>
         <Image nameImg={buttonPlay} widthImg={'100%'} onClick={setLevel} />
