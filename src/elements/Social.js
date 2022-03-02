@@ -9,7 +9,8 @@ import {
 } from 'react-share';
 
 function Social({ titleEmoji }) {
-  const title = titleEmoji;
+  const lines = titleEmoji.match(/.{1,10}/g);
+  const title = lines.join('\n');
 
   return (
     <div className='socialsection' id='socialsection'>
