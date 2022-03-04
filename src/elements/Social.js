@@ -9,11 +9,10 @@ import {
 } from 'react-share';
 
 function Social({ titleEmoji }) {
-  const lines = titleEmoji.match(/.{1,10}/g);
-  const title = lines.join('\n');
+  const title = titleEmoji;
 
   return (
-    <div className='socialsection' id='socialsection'>
+    <div className='socialsection hide' id='socialsection'>
       <div className='social-icon'>
         <TelegramShareButton
           url={'http://www.muchopixels.com'}

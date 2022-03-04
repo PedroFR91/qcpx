@@ -30,10 +30,20 @@ function Levels() {
     const levels = document.getElementById('levels');
     levels.classList.add('hide');
   }
+  function setLevel() {
+    const levels = document.getElementById('levels');
+    levels.classList.add('hide');
+    const buttonplay = document.getElementById('buttonplay');
+    buttonplay.classList.add('hide');
+    const buttondone = document.getElementById('buttondone');
+    buttondone.classList.remove('hide');
+    const theme = document.getElementById('theme');
+    theme.innerHTML = 'HUMAN';
+  }
   const startCount = () => {};
 
   return (
-    <div className='levels hide' id='levels'>
+    <div className='levels' id='levels'>
       <Image
         nameImg={backDifficultImg}
         widthImg={'100%'}
@@ -45,21 +55,17 @@ function Levels() {
       </div>
       <div className='listlevels' id='listlevels'>
         <p>Choose difficulty:</p>
-        <div
-          className='easylevel selected'
-          id='selecteasy'
-          onClick={setLevelEasy}
-        >
+        <div className='easylevel selected' id='selecteasy' onClick={setLevel}>
           <div id='setleveleasy'>Easy</div>
           <div>
             <span id='settimeeasy'>3</span> min
           </div>
         </div>
-        <div className='mediumlevel' id='selectmedium' onClick={setLevelMedium}>
+        <div className='mediumlevel' id='selectmedium' onClick={setLevel}>
           <div id='setlevelmedium'>Medium </div>
           <div id='settimemedium'>1 min</div>
         </div>
-        <div className='hardlevel' id='selecthard' onClick={setLevelHard}>
+        <div className='hardlevel' id='selecthard' onClick={setLevel}>
           <div id='setlevelhard'>Hard</div>
           <div id='settimehard'>30 sec</div>
         </div>

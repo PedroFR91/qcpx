@@ -13,16 +13,7 @@ import data from '../constants/data';
 function Body() {
   const [selectedColor, setSelectedColor] = useState('#FFFFFF');
   const [titleEmoji, setTitleEmoji] = useState('Hola');
-  function setLevel() {
-    const levels = document.getElementById('levels');
-    levels.classList.add('hide');
-    const buttonplay = document.getElementById('buttonplay');
-    buttonplay.classList.add('hide');
-    const buttondone = document.getElementById('buttondone');
-    buttondone.classList.remove('hide');
-    const theme = document.getElementById('theme');
-    theme.innerHTML = 'HUMAN';
-  }
+
   function done() {
     const buttondone = document.getElementById('buttondone');
     buttondone.classList.add('hide');
@@ -84,7 +75,7 @@ function Body() {
         <Social titleEmoji={titleEmoji} />
       </div>
       <div className='button play' id='buttonplay'>
-        <Image nameImg={buttonPlay} widthImg={'100%'} onClick={setLevel} />
+        <Image nameImg={buttonPlay} widthImg={'100%'} />
       </div>
       <div className='button done hide' id='buttondone' onClick={done}>
         <Image nameImg={buttonDone} widthImg={'100%'} />
