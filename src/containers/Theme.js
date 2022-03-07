@@ -1,7 +1,7 @@
 function Theme() {
   return (
     <div>
-      <p className='theme' id='theme'>
+      <p className='theme' id='todaytheme'>
         ?????
       </p>
     </div>

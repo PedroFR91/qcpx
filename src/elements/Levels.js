@@ -1,46 +1,47 @@
 import React from 'react';
 import Image from '../elements/Image';
 import backDifficultImg from '../assets/difficulty_dark_base_full.png';
-import CountDownGeneral from './CountDownGeneral';
 
 function Levels() {
   function setLevelEasy() {
-    hideLevels();
-    startCount();
-    const levelandtimeshape = document.getElementById('levelandtimeshape');
-    levelandtimeshape.classList.add('hide');
-    const levelandtimeeasy = document.getElementById('levelandtimeeasy');
-    levelandtimeeasy.classList.remove('hide');
+    const selectedeasy = document.getElementById('selecteasy');
+    selectedeasy.classList.add('selected');
+    const selectedmedium = document.getElementById('selectmedium');
+    selectedmedium.classList.remove('selected');
+    const selectedhard = document.getElementById('selecthard');
+    selectedhard.classList.remove('selected');
+
+    const level = document.getElementById('level');
+    level.innerHTML = 'Easy';
+    var cd = document.getElementById('cd');
+    cd.innerHTML = 180;
   }
   function setLevelMedium() {
-    hideLevels();
-    const levelandtimeshape = document.getElementById('levelandtimeshape');
-    levelandtimeshape.classList.add('hide');
-    const levelandtimemedium = document.getElementById('levelandtimemedium');
-    levelandtimemedium.classList.remove('hide');
+    const selectedmedium = document.getElementById('selectmedium');
+    selectedmedium.classList.add('selected');
+    const selectedeasy = document.getElementById('selecteasy');
+    selectedeasy.classList.remove('selected');
+    const selectedhard = document.getElementById('selecthard');
+    selectedhard.classList.remove('selected');
+
+    const level = document.getElementById('level');
+    level.innerHTML = 'Medium';
+    var cd = document.getElementById('cd');
+    cd.innerHTML = 60;
   }
   function setLevelHard() {
-    hideLevels();
-    const levelandtimeshape = document.getElementById('levelandtimeshape');
-    levelandtimeshape.classList.add('hide');
-    const levelandtimehard = document.getElementById('levelandtimehard');
-    levelandtimehard.classList.remove('hide');
+    const selectedhard = document.getElementById('selecthard');
+    selectedhard.classList.add('selected');
+    const selectedeasy = document.getElementById('selecteasy');
+    selectedeasy.classList.remove('selected');
+    const selectedmedium = document.getElementById('selectmedium');
+    selectedmedium.classList.remove('selected');
+
+    const level = document.getElementById('level');
+    level.innerHTML = 'Hard';
+    var cd = document.getElementById('cd');
+    cd.innerHTML = 30;
   }
-  function hideLevels() {
-    const levels = document.getElementById('levels');
-    levels.classList.add('hide');
-  }
-  function setLevel() {
-    const levels = document.getElementById('levels');
-    levels.classList.add('hide');
-    const buttonplay = document.getElementById('buttonplay');
-    buttonplay.classList.add('hide');
-    const buttondone = document.getElementById('buttondone');
-    buttondone.classList.remove('hide');
-    const theme = document.getElementById('theme');
-    theme.innerHTML = 'HUMAN';
-  }
-  const startCount = () => {};
 
   return (
     <div className='levels' id='levels'>
@@ -50,22 +51,22 @@ function Levels() {
         className='backlevels'
         id='backlevels'
       />
-      <div className='inicountdown' id='inicountdown'>
-        {/*<CountDownGeneral start={10} />*/}
+      <div className='countdown'>
+        <p id='countdowngeneral'></p>
       </div>
       <div className='listlevels' id='listlevels'>
         <p>Choose difficulty:</p>
-        <div className='easylevel selected' id='selecteasy' onClick={setLevel}>
+        <div className='easylevel' id='selecteasy' onClick={setLevelEasy}>
           <div id='setleveleasy'>Easy</div>
           <div>
             <span id='settimeeasy'>3</span> min
           </div>
         </div>
-        <div className='mediumlevel' id='selectmedium' onClick={setLevel}>
+        <div className='mediumlevel' id='selectmedium' onClick={setLevelMedium}>
           <div id='setlevelmedium'>Medium </div>
           <div id='settimemedium'>1 min</div>
         </div>
-        <div className='hardlevel' id='selecthard' onClick={setLevel}>
+        <div className='hardlevel' id='selecthard' onClick={setLevelHard}>
           <div id='setlevelhard'>Hard</div>
           <div id='settimehard'>30 sec</div>
         </div>

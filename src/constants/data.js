@@ -1,62 +1,44 @@
 const themes = [
-  { theme: 'HEART' },
-  {
-    theme: 'CAT',
-  },
-  {
-    theme: 'PIZZA',
-  },
-  {
-    theme: 'SNAKE',
-  },
-  {
-    theme: 'RAINBOW',
-  },
-  {
-    theme: 'STRAWBERRY',
-  },
-  {
-    theme: 'SKULL',
-  },
-  {
-    theme: 'POTION',
-  },
-  {
-    theme: 'VAMPIRE',
-  },
-  {
-    theme: 'SWORD',
-  },
-  {
-    theme: 'MOON',
-  },
-  {
-    theme: 'GHOST',
-  },
-  {
-    theme: 'MONEY',
-  },
-  {
-    theme: 'BUNNY',
-  },
-  {
-    theme: 'ROSE',
-  },
-  {
-    theme: 'ALIEN',
-  },
-  {
-    theme: 'MUSHROOM',
-  },
-  {
-    theme: 'SMILE',
-  },
-  {
-    theme: 'DOG',
-  },
+  'HEART',
+
+  'CAT',
+
+  'PIZZA',
+
+  'SNAKE',
+
+  'RAINBOW',
+
+  'STRAWBERRY',
+
+  'SKULL',
+
+  'POTION',
+
+  'VAMPIRE',
+
+  'SWORD',
+
+  'MOON',
+
+  'GHOST',
+
+  'MONEY',
+
+  'BUNNY',
+
+  'ROSE',
+
+  'ALIEN',
+
+  'MUSHROOM',
+
+  'SMILE',
+
+  'DOG',
 ];
 
-let grid = [
+const grid = [
   { id: 0, minigrid: '#FFFFFF' },
   { id: 1, minigrid: '#FFFFFF' },
   { id: 2, minigrid: '#FFFFFF' },
@@ -169,4 +151,5 @@ const palette = [
   { color: '#FACB58' },
   { color: '#FFFFFF' },
 ];
+
 export default { themes, grid, palette };
