@@ -141,6 +141,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 24px;
+  color: #fff;
 }
 .easylevel {
   background-color: #33984b;
@@ -207,6 +210,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.disabled {
+  pointer-events: none;
 }
 .hide {
   display: none;

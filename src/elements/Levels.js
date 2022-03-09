@@ -15,6 +15,9 @@ function Levels() {
     level.innerHTML = 'Easy';
     var cd = document.getElementById('cd');
     cd.innerHTML = 180;
+
+    const buttonplay = document.getElementById('buttonplay');
+    buttonplay.classList.remove('disabled');
   }
   function setLevelMedium() {
     const selectedmedium = document.getElementById('selectmedium');
@@ -28,6 +31,9 @@ function Levels() {
     level.innerHTML = 'Medium';
     var cd = document.getElementById('cd');
     cd.innerHTML = 60;
+
+    const buttonplay = document.getElementById('buttonplay');
+    buttonplay.classList.remove('disabled');
   }
   function setLevelHard() {
     const selectedhard = document.getElementById('selecthard');
@@ -39,12 +45,17 @@ function Levels() {
 
     const level = document.getElementById('level');
     level.innerHTML = 'Hard';
+    var cdata = document.getElementById('cdata');
+    cdata.innerHTML = "30''";
     var cd = document.getElementById('cd');
     cd.innerHTML = 30;
+
+    const buttonplay = document.getElementById('buttonplay');
+    buttonplay.classList.remove('disabled');
   }
 
   return (
-    <div className='levels' id='levels'>
+    <div className='levels ' id='levels'>
       <Image
         nameImg={backDifficultImg}
         widthImg={'100%'}
@@ -56,20 +67,24 @@ function Levels() {
       </div>
       <div className='listlevels' id='listlevels'>
         <p>Choose difficulty:</p>
-        <div className='easylevel' id='selecteasy' onClick={setLevelEasy}>
+        <button className='easylevel' id='selecteasy' onClick={setLevelEasy}>
           <div id='setleveleasy'>Easy</div>
           <div>
             <span id='settimeeasy'>3</span> min
           </div>
-        </div>
-        <div className='mediumlevel' id='selectmedium' onClick={setLevelMedium}>
+        </button>
+        <button
+          className='mediumlevel'
+          id='selectmedium'
+          onClick={setLevelMedium}
+        >
           <div id='setlevelmedium'>Medium </div>
           <div id='settimemedium'>1 min</div>
-        </div>
-        <div className='hardlevel' id='selecthard' onClick={setLevelHard}>
+        </button>
+        <button className='hardlevel' id='selecthard' onClick={setLevelHard}>
           <div id='setlevelhard'>Hard</div>
           <div id='settimehard'>30 sec</div>
-        </div>
+        </button>
       </div>
     </div>
   );

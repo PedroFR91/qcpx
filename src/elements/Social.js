@@ -9,13 +9,21 @@ import {
 } from 'react-share';
 
 function Social({ titleEmoji }) {
-  const convert = [];
+  const final = [];
+  var pos = 0;
+  var move = 0;
   var limit = 99;
   for (let index = 0; index < titleEmoji.length; index++) {
-    convert.push(titleEmoji[index]);
-
+    final.push(titleEmoji[index]);
+    if (final[index] === '⬜' || final[index] === '⬛') {
+      console.log('mido 1');
+    } else {
+      pos++;
+      move = pos - pos / 2;
+      console.log(pos);
+    }
     if (
-      index === limit - 90 ||
+      index === limit - 90 + move ||
       index === limit - 80 ||
       index === limit - 70 ||
       index === limit - 60 ||
@@ -23,12 +31,15 @@ function Social({ titleEmoji }) {
       index === limit - 40 ||
       index === limit - 30 ||
       index === limit - 20 ||
-      index === limit - 10
+      index === limit - 10 ||
+      index === limit
     ) {
-      convert.push('\n');
+      final.push('\n');
     }
   }
-  const title = convert.join('');
+  const title = final.join('');
+  console.log(title);
+
   return (
     <div className='socialsection hide' id='socialsection'>
       <div className='social-icon'>

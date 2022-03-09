@@ -139,7 +139,7 @@ function MiniGrid({ selectedColor, mykey, finalEmoji, setTitleEmoji }) {
     toEmoji.splice(mykey, 1, selectedColor);
     finalEmoji = toEmoji.join('');
     setTitleEmoji(finalEmoji);
-    console.log(finalEmoji);
+    console.log(mykey);
   };
 
   return (

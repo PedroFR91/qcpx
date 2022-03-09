@@ -12,24 +12,13 @@ import data from '../constants/data';
 
 function Body() {
   const [selectedColor, setSelectedColor] = useState('#FFFFFF');
-  const [titleEmoji, setTitleEmoji] = useState('Hola');
+  const [titleEmoji, setTitleEmoji] = useState('');
 
-  const buttondone = document.getElementById('buttondone');
-  const buttoncopy = document.getElementById('buttoncopy');
-  const palette = document.getElementById('palette');
-  const share = document.getElementById('share');
-  const socialsection = document.getElementById('socialsection');
-  const header = document.getElementById('header');
-  const themeheader = document.getElementById('themeheader');
-  const todaytheme = document.getElementById('todaytheme');
-  const finaltheme = document.getElementById('finaltheme');
-  const finallevel = document.getElementById('finallevel');
   const level = document.getElementById('level');
   const usedtimediv = document.getElementById('usedtime');
 
-  var now = new Date();
-
-  function done() {
+  function done(principalcountdown) {
+    clearInterval(principalcountdown);
     const buttondone = document.getElementById('buttondone');
     const buttoncopy = document.getElementById('buttoncopy');
     const palette = document.getElementById('palette');
@@ -40,6 +29,7 @@ function Body() {
     const todaytheme = document.getElementById('todaytheme');
     const finaltheme = document.getElementById('finaltheme');
     const finallevel = document.getElementById('finallevel');
+    const usedtimediv = document.getElementById('usedtime');
 
     buttondone.classList.add('hide');
     buttoncopy.classList.remove('hide');
@@ -50,11 +40,13 @@ function Body() {
     header.classList.add('gradientfinal');
     themeheader.innerHTML = 'Next Theme: ';
     todaytheme.innerHTML = '24:00:00';
+
     finaltheme.classList.remove('hide');
     finaltheme.innerHTML = '#' + data.themes[i];
     finallevel.classList.remove('hide');
     finallevel.innerHTML = '/' + level.innerHTML;
     usedtimediv.classList.remove('hide');
+    usedtimediv.innerHTML = '/' + usedtimediv + "''";
   }
   function hideLevels() {
     const listlevels = document.getElementById('listlevels');
@@ -65,8 +57,9 @@ function Body() {
     hideLevels();
     const level = document.getElementById('level');
     level.classList.remove('hide');
+    var cdata = document.getElementById('cdata');
+    cdata.classList.remove('hide');
     var cd = document.getElementById('cd');
-    cd.classList.remove('hide');
     const palette = document.getElementById('palette');
     palette.classList.remove('hide');
 
@@ -83,7 +76,8 @@ function Body() {
         buttondone.classList.remove('hide');
         const todaytheme = document.getElementById('todaytheme');
         todaytheme.innerHTML = data.themes[0];
-
+        cd.classList.remove('hide');
+        cdata.classList.add('hide');
         const gamecountdown = setInterval(cdgame, 1000);
         var usedtime = 0;
         var timelevel = cd.innerHTML;
@@ -109,6 +103,10 @@ function Body() {
             cd.classList.add('hide');
             const finalpanel = document.getElementById('finalpanel');
             finalpanel.classList.remove('hide');
+            const buttondone = document.getElementById('buttondone');
+            buttondone.classList.add('hide');
+            const buttoncopy = document.getElementById('buttoncopy');
+            buttoncopy.classList.remove('hide');
 
             const finaltheme = document.getElementById('finaltheme');
             finaltheme.classList.remove('hide');
@@ -136,6 +134,7 @@ function Body() {
             minutes + "'" + seconds + "''";
         }
       }
+
       document.getElementById('countdowngeneral').innerHTML =
         countdowngeneral--;
     }
@@ -152,6 +151,7 @@ function Body() {
     <div className='bodycontainer'>
       <div className='levelandtimepanel hide' id='levelandtimepanel'>
         <div id='level' className='hide'></div>
+        <div id='cdata' className='hide'></div>
         <div id='cd' className='hide'></div>
       </div>
       <div className='finalpanel hide' id='finalpanel'>
@@ -161,7 +161,7 @@ function Body() {
       </div>
 
       <div className='gridcontainer'>
-        <div className='grid'>
+        <div className='grid' id='grid'>
           {data.grid.map((actualGrid) => (
             <MiniGrid
               key={actualGrid.id}
@@ -186,7 +186,11 @@ function Body() {
       <div className='share ' id='share'>
         <Social titleEmoji={titleEmoji} />
       </div>
-      <div className='button play' id='buttonplay' onClick={startCount}>
+      <div
+        className='button play disabled'
+        id='buttonplay'
+        onClick={startCount}
+      >
         <Image nameImg={buttonPlay} widthImg={'100%'} />
       </div>
       <div className='button done hide' id='buttondone' onClick={done}>
