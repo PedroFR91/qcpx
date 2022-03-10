@@ -15,7 +15,7 @@ function Body() {
   const [titleEmoji, setTitleEmoji] = useState('');
 
   const level = document.getElementById('level');
-  const usedtimediv = document.getElementById('usedtime');
+  const usedtime = document.getElementById('usedtime');
   var finish = false;
   var i = 0;
   function done() {
@@ -48,7 +48,7 @@ function Body() {
     finallevel.classList.remove('hide');
 
     usedtimediv.classList.remove('hide');
-    usedtimediv.innerHTML = '/' + usedtimediv + "''";
+    usedtimediv.innerHTML = '/' + usedtime + "''";
   }
   function hideLevels() {
     const listlevels = document.getElementById('listlevels');
