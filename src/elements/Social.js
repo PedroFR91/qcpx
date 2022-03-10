@@ -7,36 +7,37 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from 'react-share';
+function toUTF16(codePoint) {
+  var TEN_BITS = parseInt('1111111111', 2);
+  function u(codeUnit) {
+    return '\\u' + codeUnit.toString(16).toUpperCase();
+  }
 
+  if (codePoint <= 0xffff) {
+    return u(codePoint);
+  }
+  codePoint -= 0x10000;
+
+  // Shift right to get to most significant 10 bits
+  var leadSurrogate = 0xd800 + (codePoint >> 10);
+
+  // Mask to get least significant 10 bits
+  var tailSurrogate = 0xdc00 + (codePoint & TEN_BITS);
+
+  return u(leadSurrogate) + u(tailSurrogate);
+}
+var brown = '🟫'.codePointAt(0);
+console.log(brown);
+var brownhex = toUTF16(brown);
+console.log(brownhex);
+var emoji = "'" + brownhex + "'";
+console.log(emoji);
 function Social({ titleEmoji }) {
   const final = [];
-  var pos = 0;
-  var move = 0;
-  var limit = 99;
   for (let index = 0; index < titleEmoji.length; index++) {
     final.push(titleEmoji[index]);
-    if (final[index] === '⬜' || final[index] === '⬛') {
-      console.log('mido 1');
-    } else {
-      pos++;
-      move = pos - pos / 2;
-      console.log(pos);
-    }
-    if (
-      index === limit - 90 + move ||
-      index === limit - 80 ||
-      index === limit - 70 ||
-      index === limit - 60 ||
-      index === limit - 50 ||
-      index === limit - 40 ||
-      index === limit - 30 ||
-      index === limit - 20 ||
-      index === limit - 10 ||
-      index === limit
-    ) {
-      final.push('\n');
-    }
   }
+
   const title = final.join('');
   console.log(title);
 

@@ -13,6 +13,8 @@ function Levels() {
 
     const level = document.getElementById('level');
     level.innerHTML = 'Easy';
+    var cdata = document.getElementById('cdata');
+    cdata.innerHTML = "3'00''";
     var cd = document.getElementById('cd');
     cd.innerHTML = 180;
 
@@ -29,6 +31,8 @@ function Levels() {
 
     const level = document.getElementById('level');
     level.innerHTML = 'Medium';
+    var cdata = document.getElementById('cdata');
+    cdata.innerHTML = "1'00''";
     var cd = document.getElementById('cd');
     cd.innerHTML = 60;
 
@@ -46,7 +50,7 @@ function Levels() {
     const level = document.getElementById('level');
     level.innerHTML = 'Hard';
     var cdata = document.getElementById('cdata');
-    cdata.innerHTML = "30''";
+    cdata.innerHTML = "0'30''";
     var cd = document.getElementById('cd');
     cd.innerHTML = 30;
 
