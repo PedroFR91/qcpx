@@ -7,38 +7,32 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from 'react-share';
-function toUTF16(codePoint) {
-  var TEN_BITS = parseInt('1111111111', 2);
-  function u(codeUnit) {
-    return '\\u' + codeUnit.toString(16).toUpperCase();
-  }
 
-  if (codePoint <= 0xffff) {
-    return u(codePoint);
-  }
-  codePoint -= 0x10000;
-
-  // Shift right to get to most significant 10 bits
-  var leadSurrogate = 0xd800 + (codePoint >> 10);
-
-  // Mask to get least significant 10 bits
-  var tailSurrogate = 0xdc00 + (codePoint & TEN_BITS);
-
-  return u(leadSurrogate) + u(tailSurrogate);
-}
-var brown = '🟫'.codePointAt(0);
-console.log(brown);
-var brownhex = toUTF16(brown);
-console.log(brownhex);
-var emoji = "'" + brownhex + "'";
-console.log(emoji);
 function Social({ titleEmoji }) {
-  const final = [];
+  //const title = titleEmoji.match(/(\p{EPres}|\p{ExtPict})/gu);
+  var prevtitle = [];
+  var move = 0;
   for (let index = 0; index < titleEmoji.length; index++) {
-    final.push(titleEmoji[index]);
+    prevtitle.push(titleEmoji[index]);
+    if (titleEmoji[index] === '\uD83D') {
+      console.log('Hola');
+      move = move + 1;
+    }
+    if (
+      index === 9 + move ||
+      index === 19 + move ||
+      index === 29 + move ||
+      index === 39 + move ||
+      index === 49 + move ||
+      index === 59 + move ||
+      index === 69 + move ||
+      index === 79 + move ||
+      index === 89 + move
+    ) {
+      prevtitle.push('\n');
+    }
   }
-
-  const title = final.join('');
+  const title = prevtitle.join('');
   console.log(title);
 
   return (
