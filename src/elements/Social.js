@@ -27,7 +27,8 @@ function Social({ titleEmoji }) {
       index === 59 + move ||
       index === 69 + move ||
       index === 79 + move ||
-      index === 89 + move
+      index === 89 + move ||
+      index === 99 + move
     ) {
       prevtitle.push('\n');
     }

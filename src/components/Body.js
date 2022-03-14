@@ -14,10 +14,10 @@ function Body() {
   const [selectedColor, setSelectedColor] = useState('#FFFFFF');
   const [titleEmoji, setTitleEmoji] = useState('');
 
-  const level = document.getElementById('level');
   const usedtime = document.getElementById('usedtime');
   var finish = false;
   var i = 0;
+
   function done() {
     finish = true;
 
@@ -28,7 +28,6 @@ function Body() {
     const socialsection = document.getElementById('socialsection');
     const header = document.getElementById('header');
     const themeheader = document.getElementById('themeheader');
-    const todaytheme = document.getElementById('todaytheme');
     const finaltheme = document.getElementById('finaltheme');
     const finallevel = document.getElementById('finallevel');
     const usedtimediv = document.getElementById('usedtime');
@@ -151,7 +150,6 @@ function Body() {
             }
           }
           if (timelevel === 179 || timelevel === 59 || timelevel === 29) {
-            var cd = document.getElementById('cd');
             cd.classList.remove('hide');
             var cdata = document.getElementById('cdata');
             cdata.classList.add('hide');

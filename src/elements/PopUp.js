@@ -6,7 +6,10 @@ import buttonCloseImg from '../assets/button_close.png';
 function hiddenPopUp() {
   const popup = document.getElementById('popup');
   popup.classList.add('hide');
+
+  localStorage.setItem('Visit', true);
 }
+
 function PopUp() {
   return (
     <div className='popup' id='popup'>
