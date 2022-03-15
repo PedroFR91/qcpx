@@ -15,8 +15,8 @@ function Social({ titleEmoji }) {
   for (let index = 0; index < titleEmoji.length; index++) {
     prevtitle.push(titleEmoji[index]);
     if (titleEmoji[index] === '\uD83D') {
-      console.log('Hola');
       move = move + 1;
+    } else {
     }
     if (
       index === 9 + move ||
@@ -34,6 +34,7 @@ function Social({ titleEmoji }) {
     }
   }
   const title = prevtitle.join('');
+
   console.log(title);
 
   return (

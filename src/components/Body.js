@@ -14,10 +14,10 @@ function Body() {
   const [selectedColor, setSelectedColor] = useState('#FFFFFF');
   const [titleEmoji, setTitleEmoji] = useState('');
 
+  const level = document.getElementById('level');
   const usedtime = document.getElementById('usedtime');
   var finish = false;
   var i = 0;
-
   function done() {
     finish = true;
 
@@ -28,9 +28,12 @@ function Body() {
     const socialsection = document.getElementById('socialsection');
     const header = document.getElementById('header');
     const themeheader = document.getElementById('themeheader');
+    const todaytheme = document.getElementById('todaytheme');
     const finaltheme = document.getElementById('finaltheme');
     const finallevel = document.getElementById('finallevel');
     const usedtimediv = document.getElementById('usedtime');
+    const level = document.getElementById('level');
+    level.classList.add('hide');
     var cd = document.getElementById('cd');
     buttondone.classList.add('hide');
     buttoncopy.classList.remove('hide');
@@ -48,6 +51,10 @@ function Body() {
 
     usedtimediv.classList.remove('hide');
     usedtimediv.innerHTML = '/' + usedtime + "''";
+  }
+  function copyResult() {
+    const copied = document.getElementById('copied');
+    copied.classList.remove('hide');
   }
   function hideLevels() {
     const listlevels = document.getElementById('listlevels');
@@ -134,7 +141,7 @@ function Body() {
               var seconds = currentDate.getSeconds();
               var minutes = currentDate.getMinutes();
               var hours = currentDate.getHours();
-              var targethour = 24 + (5 - hours);
+              var targethour = 24 - hours;
               var targetminutes = 59 - minutes;
               var targetseconds = 59 - seconds;
               if (
@@ -150,6 +157,7 @@ function Body() {
             }
           }
           if (timelevel === 179 || timelevel === 59 || timelevel === 29) {
+            var cd = document.getElementById('cd');
             cd.classList.remove('hide');
             var cdata = document.getElementById('cdata');
             cdata.classList.add('hide');
@@ -226,10 +234,16 @@ function Body() {
       <div className='button done hide' id='buttondone' onClick={done}>
         <Image nameImg={buttonDone} widthImg={'100%'} />
       </div>
-      <div className='button copyresult hide' id='buttoncopy'>
+      <div
+        className='button copyresult hide'
+        id='buttoncopy'
+        onClick={copyResult}
+      >
         <Image nameImg={buttonCopyResult} widthImg={'100%'} />
       </div>
-
+      <div className='copied hide' id='copied'>
+        Copied!
+      </div>
       <div>Support our work via Paypal</div>
     </div>
   );

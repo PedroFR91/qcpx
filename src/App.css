@@ -34,6 +34,7 @@ body {
 }
 /*HEADER*/
 .header {
+  position: relative;
   width: 100%;
   height: 25%;
   display: flex;
@@ -72,11 +73,17 @@ body {
   font-weight: 800;
   color: #fff;
 }
+.help {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 35px;
+}
 .bodycontainer {
+  position: relative;
   width: 100%;
   max-width: 600px;
   height: 75%;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -84,6 +91,8 @@ body {
 }
 
 .gridcontainer {
+  position: absolute;
+  top: 15%;
   width: 100%;
   height: 320px;
   display: flex;
@@ -161,6 +170,8 @@ body {
   border: 3px solid #fff;
 }
 .palette {
+  position: absolute;
+  top: 70%;
   display: flex;
   justify-content: center;
   height: fit-content;
@@ -200,11 +211,19 @@ body {
 }
 
 .socialsection {
-  width: 100%;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 60%;
   display: flex;
   justify-content: space-evenly;
 }
 .button {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%);
   width: 80%;
   height: 15%;
   display: flex;
@@ -217,17 +236,12 @@ body {
 .hide {
   display: none;
 }
+
 .levelandtimepanel {
-  width: 90%;
-  max-width: 320px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0.5rem;
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 24px;
-  color: #000;
-}
-.finalpanel {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  transform: translate(-50%);
   width: 80%;
   max-width: 320px;
   display: flex;
@@ -237,5 +251,46 @@ body {
   font-size: 24px;
   color: #000;
 }
-
-/*MEDIA QUERYS*/
+.finalpanel {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 80%;
+  max-width: 320px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 24px;
+  color: #000;
+}
+.copied {
+  background-color: #31373d;
+  font-size: 26px;
+  font-weight: 500;
+  color: #fff;
+  padding: 0.2rem 1rem;
+  border-radius: 6px;
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  animation: animate 1s linear;
+  animation-fill-mode: forwards;
+}
+@keyframes animate {
+  0% {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
+    bottom: 10%;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+    bottom: 20%;
+  }
+} /*MEDIA QUERYS*/ ;

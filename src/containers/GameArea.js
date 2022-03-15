@@ -9,7 +9,7 @@ function GameArea() {
     <div className='gamearea'>
       <Header />
       <Body />
-      {!visit && <PopUp />}
+      <PopUp />
     </div>
   );
 }
