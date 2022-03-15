@@ -10,6 +10,9 @@ function GameArea() {
       <Header />
       <Body />
       <PopUp />
+      <div className='rotate'>
+        <p> Please, rotate your device</p>
+      </div>
     </div>
   );
 }
