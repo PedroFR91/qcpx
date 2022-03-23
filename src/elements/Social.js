@@ -7,9 +7,8 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from 'react-share';
-
+import copy from 'copy-to-clipboard';
 function Social({ titleEmoji }) {
-  //const title = titleEmoji.match(/(\p{EPres}|\p{ExtPict})/gu);
   var prevtitle = [];
   var move = 0;
   for (let index = 0; index < titleEmoji.length; index++) {
@@ -34,7 +33,6 @@ function Social({ titleEmoji }) {
     }
   }
   const title = prevtitle.join('');
-
   console.log(title);
 
   return (

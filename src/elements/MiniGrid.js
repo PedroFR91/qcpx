@@ -133,7 +133,7 @@ function MiniGrid({ selectedColor, mykey, finalEmoji, setTitleEmoji }) {
       selectedColor = '🟨';
     }
     if (selectedColor === '#FFFFFF') {
-      selectedColor = '  ';
+      selectedColor = '⬜';
     }
 
     toEmoji.splice(mykey, 1, selectedColor);

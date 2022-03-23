@@ -149,7 +149,7 @@ const palette = [
   { color: '#A98ED6' },
   { color: '#DE2E44' },
   { color: '#FACB58' },
-  { color: '#E6E7E7' },
+  { color: '#FFFFFF' },
 ];
 
 export default { themes, grid, palette };

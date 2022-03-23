@@ -1,12 +1,8 @@
 import React from 'react';
 import image from '../assets/button_how_to_play.png';
+import PopUp from './PopUp';
 
-function showPopUp() {
-  const popup = document.getElementById('popup');
-  popup.classList.remove('hide');
-
-  localStorage.removeItem('Visit');
-}
+function showPopUp() {}
 
 function Help() {
   return (
