@@ -63,6 +63,7 @@ body {
 
 .gametitle {
   width: 60%;
+  top: 15px;
 }
 .themeheader {
   font-family: 'Titillium Web' sans-serif;
