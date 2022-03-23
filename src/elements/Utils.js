@@ -6,9 +6,6 @@ var usedtime;
 var finish = false;
 var i = 0;
 
-const elem = document.getElementById('gamearea');
-elem.requestFullscreen();
-
 function done() {
   finish = true;
   const buttondone = document.getElementById('buttondone');
