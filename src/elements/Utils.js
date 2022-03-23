@@ -9,7 +9,6 @@ function setUsedTime() {
 }
 var i = 0;
 function nextTheme() {
-  i++;
   const todaytheme = document.getElementById('todaytheme');
 
   var currentDate = new Date();
