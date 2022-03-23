@@ -8,8 +8,27 @@ function setUsedTime() {
   usedtime++;
 }
 var i = 0;
+function nextTheme() {
+  i++;
+  const todaytheme = document.getElementById('todaytheme');
 
+  var currentDate = new Date();
+  var seconds = currentDate.getSeconds();
+  var minutes = currentDate.getMinutes();
+  var hours = currentDate.getHours();
+  var targethour = 24 - (hours - 5);
+  var targetminutes = 59 - minutes;
+  var targetseconds = 59 - seconds;
+  if (targethour === 0 && targetminutes === 0 && targetseconds === 0) {
+    todaytheme.innerHTML = data.themes[i];
+  } else {
+    todaytheme.innerHTML =
+      targethour + ':' + targetminutes + ':' + targetseconds;
+  }
+}
 function done() {
+  setInterval(nextTheme, 1000);
+  nextTheme();
   const buttondone = document.getElementById('buttondone');
   const buttoncopy = document.getElementById('buttoncopy');
   const palette = document.getElementById('palette');
@@ -177,28 +196,7 @@ function startCount() {
 
           setInterval(nextTheme, 1000);
 
-          function nextTheme() {
-            i++;
-            const todaytheme = document.getElementById('todaytheme');
-
-            var currentDate = new Date();
-            var seconds = currentDate.getSeconds();
-            var minutes = currentDate.getMinutes();
-            var hours = currentDate.getHours();
-            var targethour = 24 - (hours - 5);
-            var targetminutes = 59 - minutes;
-            var targetseconds = 59 - seconds;
-            if (
-              targethour === 0 &&
-              targetminutes === 0 &&
-              targetseconds === 0
-            ) {
-              todaytheme.innerHTML = data.themes[i];
-            } else {
-              todaytheme.innerHTML =
-                targethour + ':' + targetminutes + ':' + targetseconds;
-            }
-          }
+          nextTheme();
         }
         if (timelevel === 179 || timelevel === 59 || timelevel === 29) {
           var cd = document.getElementById('cd');
