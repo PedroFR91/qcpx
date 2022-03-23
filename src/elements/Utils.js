@@ -1,13 +1,15 @@
 import data from '../constants/data';
 import title from '../elements/Social';
+
 const level = document.getElementById('level');
 
-var usedtime;
-var finish = false;
+var usedtime = 0;
+function setUsedTime() {
+  usedtime++;
+}
 var i = 0;
 
 function done() {
-  finish = true;
   const buttondone = document.getElementById('buttondone');
   const buttoncopy = document.getElementById('buttoncopy');
   const palette = document.getElementById('palette');
@@ -183,7 +185,7 @@ function startCount() {
             var seconds = currentDate.getSeconds();
             var minutes = currentDate.getMinutes();
             var hours = currentDate.getHours();
-            var targethour = 24 - hours;
+            var targethour = 24 - (hours - 5);
             var targetminutes = 59 - minutes;
             var targetseconds = 59 - seconds;
             if (
@@ -213,7 +215,8 @@ function startCount() {
           const headergradient = document.getElementById('header');
           headergradient.classList.remove('gradientcountdown');
         }
-        usedtime++;
+
+        setUsedTime();
         timelevel--;
         var minutes = Math.floor(timelevel / 60);
         var seconds = timelevel - minutes * 60;

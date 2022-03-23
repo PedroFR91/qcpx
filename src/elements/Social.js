@@ -7,7 +7,19 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from 'react-share';
-import copy from 'copy-to-clipboard';
+
+var played = false;
+if (localStorage) {
+  var played = localStorage.getItem('played');
+  if (played === null) {
+    played = 1;
+  }
+  if (played === 1) {
+    console.log('Ya has JUgado, hasta mañana');
+
+    localStorage.setItem('played', played);
+  }
+}
 function Social({ titleEmoji }) {
   var prevtitle = [];
   var move = 0;
