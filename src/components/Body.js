@@ -117,7 +117,7 @@ function Body() {
         Copied!
       </div>
       <div>
-        Support our work via <strong>Paypal</strong>{' '}
+        Support our work via <a href='https://paypal.me/muchopixels'>Paypal.</a>
       </div>
     </div>
   );

@@ -15,12 +15,21 @@ function nextTheme() {
   var seconds = currentDate.getSeconds();
   var minutes = currentDate.getMinutes();
   var hours = currentDate.getHours();
-  var targethour = 24 - (hours - 5);
+  var targethour = 24 - (hours - 4);
   var targetminutes = 59 - minutes;
   var targetseconds = 59 - seconds;
   if (targethour === 0 && targetminutes === 0 && targetseconds === 0) {
     todaytheme.innerHTML = data.themes[i];
   } else {
+    if (targethour < 10) {
+      targethour = '0' + targethour;
+    }
+    if (targetminutes < 10) {
+      targetminutes = '0' + targetminutes;
+    }
+    if (targetseconds < 10) {
+      targetseconds = '0' + targetseconds;
+    }
     todaytheme.innerHTML =
       targethour + ':' + targetminutes + ':' + targetseconds;
   }
@@ -60,6 +69,9 @@ function done() {
   finallevel.classList.remove('hide');
   finallevel.innerHTML = '/' + level.innerHTML;
   usedtimediv.classList.remove('hide');
+  if (usedtime < 10) {
+    usedtime = '0' + usedtime;
+  }
   usedtimediv.innerHTML = '/' + usedtime + "''";
 }
 function copyResult() {
@@ -81,7 +93,7 @@ function setLevelEasy() {
   const level = document.getElementById('level');
   level.innerHTML = 'Easy';
   var cdata = document.getElementById('cdata');
-  cdata.innerHTML = "3'00''";
+  cdata.innerHTML = "03'00''";
   var cd = document.getElementById('cd');
   cd.innerHTML = 180;
 
@@ -99,7 +111,7 @@ function setLevelMedium() {
   const level = document.getElementById('level');
   level.innerHTML = 'Medium';
   var cdata = document.getElementById('cdata');
-  cdata.innerHTML = "1'00''";
+  cdata.innerHTML = "01'00''";
   var cd = document.getElementById('cd');
   cd.innerHTML = 60;
 
@@ -117,7 +129,7 @@ function setLevelHard() {
   const level = document.getElementById('level');
   level.innerHTML = 'Hard';
   var cdata = document.getElementById('cdata');
-  cdata.innerHTML = "0'30''";
+  cdata.innerHTML = "00'30''";
   var cd = document.getElementById('cd');
   cd.innerHTML = 30;
 
@@ -191,12 +203,16 @@ function startCount() {
           finallevel.innerHTML = '/' + level.innerHTML;
           const usedtimediv = document.getElementById('usedtime');
           usedtimediv.classList.remove('hide');
+          if (usedtime < 10) {
+            usedtime = '0' + usedtime;
+          }
           usedtimediv.innerHTML = '/' + usedtime + "''";
 
           setInterval(nextTheme, 1000);
 
           nextTheme();
         }
+
         if (timelevel === 179 || timelevel === 59 || timelevel === 29) {
           var cd = document.getElementById('cd');
           cd.classList.remove('hide');
@@ -217,6 +233,13 @@ function startCount() {
         timelevel--;
         var minutes = Math.floor(timelevel / 60);
         var seconds = timelevel - minutes * 60;
+        if (minutes < 10) {
+          minutes = '0' + minutes;
+        }
+        if (seconds < 10) {
+          seconds = '0' + seconds;
+        }
+
         document.getElementById('cd').innerHTML =
           minutes + "'" + seconds + "''";
       }
