@@ -5,18 +5,10 @@ import PopUp from '../elements/PopUp';
 import data from '../constants/data';
 if (localStorage) {
   var visits = localStorage.getItem('visits');
-  var played = localStorage.getItem('played');
-  if (visits === null) {
-    visits = 1;
-  }
-  if (visits === 1) {
-    console.log('First visit');
-    visits++;
-  } else {
-    console.log('Not first visit');
-    visits++;
-  }
 
+  if (visits !== 1) {
+    console.log('Not first visit');
+  }
   localStorage.setItem('visits', visits);
 }
 
@@ -25,7 +17,7 @@ function GameArea() {
     <div className='gamearea' id='gamearea'>
       <Header />
       <Body />
-      <PopUp />
+      {visits === null && <PopUp />}
 
       <div className='rotate'>
         <p> Please rotate your device</p>
