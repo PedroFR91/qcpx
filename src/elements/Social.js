@@ -22,29 +22,32 @@ if (localStorage) {
 }
 var copiedtext;
 function Social({ titleEmoji }) {
+  var jump = 0;
   var prevtitle = [];
-  var move = 0;
   for (let index = 0; index < titleEmoji.length; index++) {
     prevtitle.push(titleEmoji[index]);
     if (titleEmoji[index] === '\uD83D') {
-      move = move + 1;
+      jump++;
+    } else {
     }
     if (
-      index === 9 + move ||
-      index === 19 + move ||
-      index === 29 + move ||
-      index === 39 + move ||
-      index === 49 + move ||
-      index === 59 + move ||
-      index === 69 + move ||
-      index === 79 + move ||
-      index === 89 + move ||
-      index === 99 + move
+      index === 9 + jump ||
+      index === 19 + jump ||
+      index === 29 + jump ||
+      index === 39 + jump ||
+      index === 49 + jump ||
+      index === 59 + jump ||
+      index === 69 + jump ||
+      index === 79 + jump ||
+      index === 89 + jump ||
+      index === 99 + jump
     ) {
       prevtitle.push('\n');
     }
   }
+
   const title = prevtitle.join('');
+
   copiedtext = title;
   console.log(title);
 
@@ -52,7 +55,7 @@ function Social({ titleEmoji }) {
     <div className='socialsection hide' id='socialsection'>
       <div className='social-icon'>
         <TelegramShareButton
-          url={'http://www.muchopixels.com'}
+          url={'http://quickpix.muchopixels.com/'}
           title={title}
           hashtags={['muchopixels']}
         >
@@ -61,7 +64,7 @@ function Social({ titleEmoji }) {
       </div>
       <div className='social-icon'>
         <TwitterShareButton
-          url={'http://www.muchopixels.com'}
+          url={'http://quickpix.muchopixels.com/'}
           title={title}
           hashtags={['muchopixels']}
         >
@@ -69,7 +72,10 @@ function Social({ titleEmoji }) {
         </TwitterShareButton>
       </div>
       <div className='social-icon'>
-        <WhatsappShareButton url={'http://www.muchopixels.com'} title={title}>
+        <WhatsappShareButton
+          url={'http://quickpix.muchopixels.com/'}
+          title={title}
+        >
           <WhatsappIcon size={50} borderRadius={36} />
         </WhatsappShareButton>
       </div>

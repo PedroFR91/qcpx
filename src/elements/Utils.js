@@ -7,7 +7,6 @@ var played;
 
 function setUsedTime() {
   usedtime++;
-  console.log(usedtime);
 }
 var i = 0;
 function nextTheme() {
