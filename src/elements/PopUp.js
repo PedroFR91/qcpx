@@ -4,8 +4,7 @@ import popUpImg from '../assets/pop-up_how-to-play-v02.png';
 import buttonCloseImg from '../assets/button_close.png';
 
 function hiddenPopUp() {
-  const popup = document.getElementById('popup');
-  popup.classList.add('hide');
+  document.getElementById('popup').style.visibility = 'hidden';
 }
 
 function PopUp() {

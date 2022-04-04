@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Image({ nameImg, altImg, widthImg }) {
+function Image({ nameImg, altImg, widthImg, heightImg }) {
   return (
-    <div>
-      <img src={nameImg} alt={altImg} width={widthImg} />
-    </div>
+    <>
+      <img src={nameImg} alt={altImg} width={widthImg} height={heightImg} />
+    </>
   );
 }
 

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Image from '../elements/Image';
 import buttonPlay from '../assets/button_play.png';
 import buttonDone from '../assets/button_done.png';
+import erase from '../assets/color_palette_erase.png';
 import buttonCopyResult from '../assets/button_copy_result.png';
 import Social from '../elements/Social';
 import MiniGrid from '../elements/MiniGrid';
@@ -15,8 +16,9 @@ import {
   setLevelHard,
   startCount,
   done,
-  copyResult,
+  copyFocus,
 } from '../elements/Utils';
+import EraseGrid from '../elements/EraseGrid';
 
 function Body() {
   const [selectedColor, setSelectedColor] = useState('#FFFFFF');
@@ -34,7 +36,6 @@ function Body() {
         <div id='finallevel' className='hide'></div>
         <div id='usedtime' className='hide'></div>
       </div>
-
       <div className='gridcontainer'>
         <div className='grid' id='grid'>
           {data.grid.map((actualGrid) => (
@@ -96,11 +97,20 @@ function Body() {
             setSelectedColor={setSelectedColor}
           />
         ))}
+        <EraseGrid
+          color={'#FFFFFF'}
+          setSelectedColor={setSelectedColor}
+          className='erase'
+        />
       </div>
       <div className='share ' id='share'>
         <Social titleEmoji={titleEmoji} />
       </div>
-      <div className='button play' id='buttonplay' onClick={startCount}>
+      <div
+        className='button play disabled'
+        id='buttonplay'
+        onClick={startCount}
+      >
         <Image nameImg={buttonPlay} widthImg={'100%'} />
       </div>
       <div className='button done hide' id='buttondone' onClick={done}>
@@ -109,14 +119,14 @@ function Body() {
       <div
         className='button copyresult hide'
         id='buttoncopy'
-        onClick={copyResult}
+        onClick={copyFocus}
       >
         <Image nameImg={buttonCopyResult} widthImg={'100%'} />
       </div>
-      <div className='copied hide' id='copied'>
+      <div className='button copied hide' id='copied'>
         Copied!
       </div>
-      <div>
+      <div className='paypal'>
         Support our work via <a href='https://paypal.me/muchopixels'>Paypal.</a>
       </div>
     </div>

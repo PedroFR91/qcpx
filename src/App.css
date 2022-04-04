@@ -32,6 +32,7 @@ body {
   display: block;
   z-index: 10;
 }
+
 .buttonclose {
   position: absolute;
   top: 10px;
@@ -88,6 +89,7 @@ body {
   right: 5%;
   width: 35px;
 }
+/*BODY*/
 .bodycontainer {
   position: relative;
   width: 100%;
@@ -101,7 +103,7 @@ body {
 
 .gridcontainer {
   position: absolute;
-  top: 15%;
+  top: 20%;
   width: 100%;
   height: 320px;
   display: flex;
@@ -146,7 +148,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   font-family: 'Titillium Web', sans-serif;
-  font-size: 24px;
+  font-size: 28px;
   color: #fff;
 }
 .listlevels .easylevel,
@@ -160,7 +162,7 @@ body {
   align-items: center;
   padding: 0 1rem;
   font-family: 'Titillium Web', sans-serif;
-  font-size: 24px;
+  font-size: 28px;
   color: #fff;
 }
 .easylevel {
@@ -180,19 +182,36 @@ body {
 }
 .palette {
   position: absolute;
-  top: 70%;
+  top: 65%;
   display: flex;
   justify-content: center;
   height: fit-content;
   width: 100%;
   max-width: 320px;
 }
-.minigrid,
-.palettegrid,
-.erase-image {
+.minigrid {
   width: 10%;
   aspect-ratio: 1;
   border: 1px solid #c7cfdd;
+}
+.erase-image,
+.palettegrid {
+  width: 10%;
+  aspect-ratio: 1;
+}
+.frame {
+  width: 10%;
+  aspect-ratio: 1;
+  border: 1px solid black;
+  z-index: 10;
+}
+.w {
+  border: 2px solid #ffffff;
+}
+.erase-image-pos {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .white {
   background-color: #e6e7e7;
@@ -218,10 +237,15 @@ body {
 .yellow {
   background-color: #facb58;
 }
+.erase {
+  background-image: url('./assets/color_palette_erase.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .socialsection {
   position: absolute;
-  top: 70%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%);
   width: 60%;
@@ -230,11 +254,12 @@ body {
 }
 .button {
   position: absolute;
-  top: 80%;
+  top: 75%;
   left: 50%;
   transform: translate(-50%);
-  width: 80%;
-  height: 15%;
+  width: fit-content;
+  max-width: 250px;
+  height: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -245,7 +270,9 @@ body {
 .hide {
   display: none;
 }
-
+.show {
+  display: block;
+}
 .levelandtimepanel {
   position: absolute;
   top: 4%;
@@ -286,10 +313,12 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 20;
-  animation: animate 1s linear;
+  animation: animate 1.5s linear;
   animation-fill-mode: forwards;
 }
 .paypal {
+  position: absolute;
+  top: 90%;
   font-weight: 600;
 }
 @keyframes animate {
@@ -332,5 +361,84 @@ body {
   }
   .bodycontainer {
     display: none;
+  }
+}
+@media screen and (max-width: 1201px) {
+  .levelandtimepanel,
+  .finalpanel {
+  }
+  .gridcontainer {
+  }
+  .palette,
+  .socialsection {
+  }
+  .button {
+  }
+  .paypal {
+  }
+}
+@media screen and (max-width: 1025px) {
+  .levelandtimepanel,
+  .finalpanel {
+  }
+  .gridcontainer {
+  }
+  .palette,
+  .socialsection {
+  }
+  .button {
+  }
+  .paypal {
+  }
+}
+@media screen and (max-width: 769px) {
+  .levelandtimepanel,
+  .finalpanel {
+  }
+  .gridcontainer {
+  }
+  .palette,
+  .socialsection {
+  }
+  .button {
+  }
+  .paypal {
+  }
+}
+@media screen and (max-width: 481px) {
+  .levelandtimepanel,
+  .finalpanel {
+    top: 0%;
+  }
+  .gridcontainer {
+    top: 10%;
+  }
+
+  .palette,
+  .socialsection {
+  }
+  .button {
+  }
+  .paypal {
+  }
+}
+@media screen and (max-width: 320px) {
+  .levelandtimepanel,
+  .finalpanel {
+    top: 0%;
+  }
+  .gridcontainer {
+    top: 10%;
+  }
+  .palette,
+  .socialsection {
+    top: 72%;
+  }
+  .button {
+    top: 80%;
+  }
+  .paypal {
+    position: absolute;
+    bottom: 1%;
   }
 }

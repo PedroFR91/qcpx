@@ -1,10 +1,11 @@
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Body from '../components/Body';
 import PopUp from '../elements/PopUp';
-
-var firstvisit = true;
+import data from '../constants/data';
 if (localStorage) {
   var visits = localStorage.getItem('visits');
+  var played = localStorage.getItem('played');
   if (visits === null) {
     visits = 1;
   }
@@ -14,17 +15,18 @@ if (localStorage) {
   } else {
     console.log('Not first visit');
     visits++;
-    firstvisit = false;
   }
 
   localStorage.setItem('visits', visits);
 }
+
 function GameArea() {
   return (
     <div className='gamearea' id='gamearea'>
       <Header />
       <Body />
-      {firstvisit && <PopUp />}
+      <PopUp />
+
       <div className='rotate'>
         <p> Please rotate your device</p>
       </div>

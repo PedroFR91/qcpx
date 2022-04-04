@@ -20,6 +20,7 @@ if (localStorage) {
     localStorage.setItem('played', played);
   }
 }
+var copiedtext;
 function Social({ titleEmoji }) {
   var prevtitle = [];
   var move = 0;
@@ -27,7 +28,6 @@ function Social({ titleEmoji }) {
     prevtitle.push(titleEmoji[index]);
     if (titleEmoji[index] === '\uD83D') {
       move = move + 1;
-    } else {
     }
     if (
       index === 9 + move ||
@@ -45,6 +45,7 @@ function Social({ titleEmoji }) {
     }
   }
   const title = prevtitle.join('');
+  copiedtext = title;
   console.log(title);
 
   return (
@@ -55,7 +56,7 @@ function Social({ titleEmoji }) {
           title={title}
           hashtags={['muchopixels']}
         >
-          <TelegramIcon size={40} borderRadius={36} />
+          <TelegramIcon size={50} borderRadius={36} />
         </TelegramShareButton>
       </div>
       <div className='social-icon'>
@@ -64,16 +65,16 @@ function Social({ titleEmoji }) {
           title={title}
           hashtags={['muchopixels']}
         >
-          <TwitterIcon size={40} borderRadius={36} />
+          <TwitterIcon size={50} borderRadius={36} />
         </TwitterShareButton>
       </div>
       <div className='social-icon'>
         <WhatsappShareButton url={'http://www.muchopixels.com'} title={title}>
-          <WhatsappIcon size={40} borderRadius={36} />
+          <WhatsappIcon size={50} borderRadius={36} />
         </WhatsappShareButton>
       </div>
     </div>
   );
 }
-
 export default Social;
+export { copiedtext };
